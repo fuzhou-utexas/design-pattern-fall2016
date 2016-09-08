@@ -1,0 +1,55 @@
+source control:
+	git
+
+compiler environment
+
+unit test: white-box
+	Google test
+
+acceptance test: black-box
+
+coverage:
+	gcov
+
+static analysis:
+	clang-check
+	coverity
+
+memory checker:
+	valgrind
+
+auto documentation:
+	doxygen
+
+auto formatter:
+	clang-format
+
+continuous integration:
+	Travis CI
+
+Docker:
+	
+Iterator:
+input: ++, * (read), ==, !=
+output: ++, * (write)
+forward: <input>, *(read/write)
+bidirectional: <forward>, --
+random access: <bidirectional>, +/- int, <, >, <=, >=, []
+
+count: forward_list, list, vector, deque, set
+reverse: list, vector, deque, set
+sort: vector, deque
+
+deduce what type of iterator to use
+- faster reverse
+- slower reverse
+
+template <typename T>
+class list {
+	...
+	class iterator {
+		...
+		using distance_type = ptrdiff_t;  // signed long
+	}
+}
+
